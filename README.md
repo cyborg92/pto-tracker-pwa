@@ -8,7 +8,7 @@ A Progressive web application built with VanillaJS to keep track of team availab
 ### Clone the repository and install dependencies
 
 ```
-git clone https://github.com/pabhishek-deloitte/pto-tracker-pwa.git
+git clone https://github.com/cyborg92/pto-tracker-pwa.git
 ```
 
 ### download webserver for chrome
