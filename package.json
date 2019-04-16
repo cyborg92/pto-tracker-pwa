@@ -1,0 +1,12 @@
+{
+    "name": "pto-tracker-pwa",
+    "version": "1.0.0",
+    "description": "PTO Tracker PWA",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Rachit Handa",
+    "license": "ISC",
+    "homepage": "https://pto-tracker-app.firebaseapp.com/"
+}

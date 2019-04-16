@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3f51b5" />
+    <meta name=”description” content="A PTO tracker built to showcase the features of progressive web app such as caching, service workers, offline support." />
+    <title>PTO Tracker</title>
+    <link rel="stylesheet" href="./styles/font-files.css">
+    <link rel="stylesheet" href="./styles/material-icons.css">
+    <link rel="stylesheet" href="./styles/material.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PTO Tracker">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" href="./images/icons/apple-icons/apple-touch-icon-180x180.png">
+
+
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="./manifest.json">
+</head>
+
+<body>
+
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header ">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">PTO Tracker</span>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer">
+            <header class="demo-drawer-header">
+                <img src="images/user.jpg" class="demo-avatar">
+                <p id="current-user">Rachit</p>
+                <div class="demo-avatar-dropdown">
+                    <span id="current-team">Progressive Web App</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Team</span>
+                    </button>
+                    <ul id="Team-names" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                    </ul>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation">
+                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                    <img class="mdl-color-text--white material-icons piggy-icon" role="presentation" src="./images/favicon.png" alt="pto-icon">Team's PTO</a>
+                <a id="homscreen-btn" class="mdl-navigation__link mdl-color-text--white">
+                    <i class="mdl-color-text--white material-icons" role="presentation">home</i>Add to Homescreen</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <p id="pto-chart-heading" class=" -mdl-color--white mdl-cell mdl-cell--12-col mdl-grid">Team
+                    <span id="calendar-team-name">Progressive Web</span> Availability
+                </p>
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <svg id="availability-chart-svg" fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+                        <use xlink:href="#piechart" mask="url(#piemask)" />
+                        <text id="availability-value" x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82%
+                        </text>
+                    </svg>
+                    <p id="calendar-date"></p>
+                </div>
+            </div>
+            <div class="mdl-grid demo-content">
+                <p id="pto-calandar-heading" class=" -mdl-color--white mdl-cell mdl-cell--12-col mdl-grid">Team PTO Calendar</p>
+                <div id="calendar-div" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+
+                    <table id="pto-table" class="mdl-data-table mdl-js-data-table" hidden>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
+        <defs>
+            <mask id="piemask" maskContentUnits="objectBoundingBox">
+                <circle cx=0.5 cy=0.5 r=0.49 fill="white" />
+                <circle cx=0.5 cy=0.5 r=0.40 fill="black" />
+            </mask>
+            <g id="piechart">
+                <circle cx=0.5 cy=0.5 r=0.5 />
+            </g>
+        </defs>
+    </svg>
+    <script src="./scripts/material.min.js"></script>
+    <script src="./scripts/app.js"></script>
+
+</body>
+
+</html>
